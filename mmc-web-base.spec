@@ -1,16 +1,18 @@
+%define snap r210
+
 %define _requires_exceptions pear(graph\\|pear(includes\\|pear(modules
 %define _enable_debug_packages %{nil}
 %define debug_package          %{nil}
 
-Summary:	LMC web interface to interact with a LMC agent
-Name:		lmc-web-base
-Version:	2.0.0
-Release:	%mkrel 3
+Summary:	MMC web interface to interact with a MMC agent
+Name:		mmc-web-base
+Version:	2.0.1
+Release:	%mkrel 0.%{snap}.1
 License:	GPL
 Group:		System/Servers
 URL:		http://lds.linbox.org/
-Source0:	%{name}-%{version}.tar.gz
-Patch0:		lmc-web-base-Makefile_fix.diff
+Source0:	%{name}-%{version}-%{snap}.tar.gz
+Patch0:		mmc-web-base-Makefile_fix.diff
 Requires:	apache-mod_php
 Requires:	php-xmlrpc
 Requires:	php-iconv
@@ -21,7 +23,7 @@ BuildRequires:  apache-base >= 2.0.54
 Buildroot:	%{_tmppath}/%{name}-buildroot
 
 %description
-Linbox Management Console web interface designed by Linbox
+Mandriva Management Console web interface designed by Linbox
 
 %prep
 
@@ -43,9 +45,9 @@ install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf << EOF
 
-Alias /lmc %{_datadir}/lmc
+Alias /mmc %{_datadir}/mmc
 
-<Directory "%{_datadir}/lmc">
+<Directory "%{_datadir}/mmc">
     AllowOverride None
     Order allow,deny
     allow from all
@@ -67,5 +69,5 @@ rm -rf %{buildroot}
 %defattr(-,root,root,0755)
 %doc COPYING Changelog
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
-%attr(0640,root,apache) %config(noreplace) %{_sysconfdir}/lmc/lmc.ini
-%{_datadir}/lmc
+%attr(0640,root,apache) %config(noreplace) %{_sysconfdir}/mmc/mmc.ini
+%{_datadir}/mmc
