@@ -1,17 +1,15 @@
-%define snap r210
-
 %define _requires_exceptions pear(graph\\|pear(includes\\|pear(modules
 %define _enable_debug_packages %{nil}
 %define debug_package          %{nil}
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
-Version:	2.0.1
-Release:	%mkrel 0.%{snap}.2
+Version:	2.1.0
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://lds.linbox.org/
-Source0:	%{name}-%{version}-%{snap}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 Patch0:		mmc-web-base-Makefile_fix.diff
 Requires:	apache-mod_php
 Requires:	php-xmlrpc
