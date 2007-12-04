@@ -4,8 +4,8 @@
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
-Version:	2.1.0
-Release:	%mkrel 2
+Version:	2.2.0
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
