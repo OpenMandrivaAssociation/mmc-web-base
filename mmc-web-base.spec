@@ -18,7 +18,6 @@ Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
 BuildRequires:  apache-base >= 2.0.54
-Buildroot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Mandriva Management Console web interface designed by Linbox
