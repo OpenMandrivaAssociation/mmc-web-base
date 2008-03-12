@@ -4,7 +4,7 @@
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
-Version:	2.2.0
+Version:	2.3.0
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
@@ -14,6 +14,7 @@ Patch0:		mmc-web-base-Makefile_fix.diff
 Requires:	apache-mod_php
 Requires:	php-xmlrpc
 Requires:	php-iconv
+Requires:	php-gd
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
