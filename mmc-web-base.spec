@@ -4,7 +4,7 @@
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
-Version:	2.3.0
+Version:	2.3.1
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
