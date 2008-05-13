@@ -5,7 +5,7 @@
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
 Version:	2.3.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
@@ -19,7 +19,7 @@ Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
 BuildRequires:  apache-base >= 2.0.54
-Buildroot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Mandriva Management Console web interface designed by Linbox
@@ -39,6 +39,8 @@ done
 rm -rf %{buildroot}
 
 %makeinstall_std
+
+install -m0644 license.php %{buildroot}%{_datadir}/mmc/
 
 install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 
