@@ -1,11 +1,11 @@
-%define _requires_exceptions pear(graph\\|pear(includes\\|pear(modules
+%define _requires_exceptions pear(graph\\|pear(includes\\|pear(modules\\|pear(license.php)
 %define _enable_debug_packages %{nil}
 %define debug_package          %{nil}
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
 Version:	2.3.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
