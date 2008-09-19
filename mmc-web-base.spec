@@ -5,13 +5,12 @@
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
 Version:	2.3.1
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		mmc-web-base-Makefile_fix.diff
-Patch1:		mmc-web-base-pulse2-1.1.0_fixes.diff
 Requires:	apache-mod_php
 Requires:	php-xmlrpc
 Requires:	php-iconv
@@ -33,7 +32,6 @@ for i in `find . -type d -name .svn`; do
 done
 
 %patch0 -p0
-%patch1 -p1
 
 %build
 
