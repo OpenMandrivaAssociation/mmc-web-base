@@ -4,14 +4,13 @@
 
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
-Version:	2.3.1
-Release:	%mkrel 7
+Version:	2.3.2
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		mmc-web-base-Makefile_fix.diff
-Patch1:		mmc-web-base-2.3.1-pulse2_1.2.0rc6_fixes.diff
 Requires:	apache-mod_php
 Requires:	php-xmlrpc
 Requires:	php-iconv
@@ -28,12 +27,12 @@ Mandriva Management Console web interface designed by Linbox
 %prep
 
 %setup -q -n %{name}-%{version}
+
 for i in `find . -type d -name .svn`; do
     if [ -e "$i" ]; then rm -rf $i; fi >&/dev/null
 done
 
 %patch0 -p0
-%patch1 -p1
 
 %build
 
