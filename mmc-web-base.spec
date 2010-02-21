@@ -5,7 +5,7 @@
 Summary:	MMC web interface to interact with a MMC agent
 Name:		mmc-web-base
 Version:	2.3.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Servers
 URL:		http://mds.mandriva.org/
@@ -15,11 +15,12 @@ Requires:	apache-mod_php
 Requires:	php-xmlrpc
 Requires:	php-iconv
 Requires:	php-gd
-Requires(post): rpm-helper
-Requires(postun): rpm-helper
+%if %mdkversion < 201010
+Requires(post):   rpm-helper
+Requires(postun):   rpm-helper
+%endif
 BuildArch:      noarch
-BuildRequires:  apache-base >= 2.0.54
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Mandriva Management Console web interface designed by Linbox
@@ -46,7 +47,6 @@ install -m0644 license.php %{buildroot}%{_datadir}/mmc/
 install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf << EOF
-
 Alias /mmc %{_datadir}/mmc
 
 <Directory "%{_datadir}/mmc">
@@ -55,14 +55,17 @@ Alias /mmc %{_datadir}/mmc
     allow from all
     php_flag short_open_tag on
 </Directory>
-
 EOF
 
 %post
+%if %mdkversion < 201010
 %_post_webapp
+%endif
 
 %postun
+%if %mdkversion < 201010
 %_postun_webapp
+%endif
 
 %clean
 rm -rf %{buildroot}
@@ -70,6 +73,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,0755)
 %doc COPYING Changelog
-%attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
 %attr(0640,root,apache) %config(noreplace) %{_sysconfdir}/mmc/mmc.ini
 %{_datadir}/mmc
