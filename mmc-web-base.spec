@@ -8,7 +8,7 @@ Version:	2.3.2
 Release:	%mkrel 3
 License:	GPL
 Group:		System/Servers
-URL:		http://mds.mandriva.org/
+URL:		https://mds.mandriva.org/
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		mmc-web-base-Makefile_fix.diff
 Requires:	apache-mod_php
